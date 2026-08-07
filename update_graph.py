@@ -21,5 +21,11 @@ for i in range(num_commits):
     time.sleep(1)
 
 # Push all the day's commits to GitHub at once
-os.system("git push origin main")
+exit_status = os.system("git push origin main")
+
+# If the push was successful (exit status 0), send a notification alert!
+if exit_status == 0:
+    os.system(f'termux-notification --title "GitHub Bot Success" --content "Successfully pushed {num_commits} random commits to your graph!" --id 99')
+else:
+    os.system('termux-notification --title "GitHub Bot Failed" --content "There was an error pushing your commits today." --id 99')
 
