@@ -331,3 +331,6 @@ To https://github.com/Dande-at-work/automations-bot-test-101.git
  2 files changed, 3 insertions(+)
 [main 07c4196] Optimize framework architecture component 7
  2 files changed, 3 insertions(+)
+[main 67d0cd5] Optimize framework architecture component 8
+ 2 files changed, 3 insertions(+)
+fatal: unable to access 'https://github.com/Dande-at-work/automations-bot-test-101.git/': Could not resolve host: github.com
