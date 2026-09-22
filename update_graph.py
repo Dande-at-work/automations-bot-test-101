@@ -5,7 +5,10 @@ import time
 
 log_file = "activity_log.txt"
 
-# 1. Roll a 100-sided dice to choose a realistic developer velocity "mode"
+# 1. Pull remote changes first to prevent push rejections
+os.system("git pull origin main --rebase")
+
+# 2. Roll a 100-sided dice to choose a realistic developer velocity "mode"
 mode_roll = random.randint(1, 100)
 
 if mode_roll <= 10:
@@ -21,19 +24,19 @@ else:
     # 15% Chance: Massive system launch day -> Shade 4 (Darkest Green)
     num_commits = random.randint(13, 16)
 
-# 2. Execute the human-calibrated commit block
+# 3. Execute the human-calibrated commit block
 for i in range(num_commits):
     with open(log_file, "a") as f:
         f.write(f"Organic Node {i+1}/{num_commits} logged at {datetime.now()}\n")
-    
+
     os.system("git add .")
     os.system(f'git commit -m "Optimize framework architecture component {i+1}"')
     time.sleep(0.2)
 
-# 3. Securely push the entire batch to your GitHub repository
+# 4. Securely push the entire batch to your GitHub repository
 exit_status = os.system("git push origin main")
 
-# 4. Fire your custom native Android notification banner
+# 5. Fire your custom native Android notification banner
 if exit_status == 0:
     os.system(f'termux-notification --title "Organic Bot Active" --content "Pushed {num_commits} human-distributed commits to your profile!" --id 99')
 else:
